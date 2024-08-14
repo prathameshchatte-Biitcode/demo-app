@@ -6,6 +6,8 @@ phases:
       - echo Installing httpd...
       - sudo yum update -y
       - sudo yum install -y httpd
+      - sudo systemctl start httpd
+      - sudo systemctl enable httpd
 
   build:
     commands:
@@ -15,6 +17,8 @@ phases:
   post_build:
     commands:
       - echo Configuring httpd to serve index.html...
+      - sudo systemctl restart httpd
+
 artifacts:
   files:
     - /var/www/html/index.html
