@@ -5,7 +5,7 @@ phases:
     commands:
       - echo Installing Nginx...
       - sudo yum update -y
-      - sudo amazon-linux-extras install nginx1 -y
+      - sudo yum install nginx -y
       - sudo nginx -v
       - sudo nginx -t
 
