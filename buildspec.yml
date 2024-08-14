@@ -15,7 +15,6 @@ phases:
   post_build:
     commands:
       - echo Configuring httpd to serve index.html...
-      - sudo systemctl restart httpd
 
 artifacts:
   files:
