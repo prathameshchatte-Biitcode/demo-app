@@ -6,8 +6,8 @@ phases:
       - echo Installing Nginx...
       - sudo yum update -y
       - sudo yum install nginx -y
-      - sudo systemctl start nginx
-      - sudo systemctl enable nginx
+      - sudo service nginx start 
+      - sudo service nginx enable 
 
   build:
     commands:
@@ -17,7 +17,7 @@ phases:
   post_build:
     commands:
       - echo Configuring Nginx to serve index.html...
-      - sudo systemctl restart nginx
+      - sudo service nginx restart
 
 artifacts:
   files:
