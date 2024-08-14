@@ -5,9 +5,9 @@ phases:
     commands:
       - echo Installing Nginx...
       - sudo yum update -y
-      - sudo yum install nginx -y
-      - sudo service nginx start 
-      - sudo service nginx enable 
+      - sudo amazon-linux-extras install nginx1 -y
+      - sudo nginx -v
+      - sudo nginx -t
 
   build:
     commands:
@@ -17,9 +17,11 @@ phases:
   post_build:
     commands:
       - echo Configuring Nginx to serve index.html...
-      - sudo service nginx restart
+      - sudo pkill nginx || true
+      - sudo systemctl start nginx || sudo journalctl -xe
 
 artifacts:
   files:
     - /usr/share/nginx/html/index.html
+
 
