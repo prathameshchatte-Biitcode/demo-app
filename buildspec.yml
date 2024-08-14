@@ -1,0 +1,22 @@
+# Specification file of commands (what we want to do) while building
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Nginx...
+      - sudo apt-get update -y
+      - sudo apt-get install nginx -y
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - sudo cp -r index.html /var/www/html/
+
+  post_build:
+    commands:
+      - echo Configuring Nginx to serve index.html...
+
+artifacts:
+  files:
+    - /var/www/html/index.html
