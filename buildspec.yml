@@ -6,22 +6,17 @@ phases:
       - echo Installing Nginx...
       - sudo yum update -y
       - sudo yum install nginx -y
-      - sudo nginx -v
-      - sudo nginx -t
 
   build:
     commands:
       - echo Build started on `date`
-      - sudo cp -r index.html /usr/share/nginx/html/
+      - sudo cp  index.html /var/www/html/
 
   post_build:
     commands:
       - echo Configuring Nginx to serve index.html...
-      - sudo pkill nginx || true
-      - sudo systemctl start nginx || sudo journalctl -xe
-
 artifacts:
   files:
-    - /usr/share/nginx/html/index.html
+    - /var/www/html/index.html
 
 
