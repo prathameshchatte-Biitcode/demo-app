@@ -3,18 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing Nginx...
+      - echo Installing httpd...
       - sudo yum update -y
-      - sudo yum install nginx -y
+      - sudo yum install -y httpd
 
   build:
     commands:
       - echo Build started on `date`
-      - sudo cp  index.html /var/www/html/
+      - sudo cp -r index.html /var/www/html/
 
   post_build:
     commands:
-      - echo Configuring Nginx to serve index.html...
+      - echo Configuring httpd to serve index.html...
 artifacts:
   files:
     - /var/www/html/index.html
