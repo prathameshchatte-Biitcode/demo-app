@@ -17,6 +17,3 @@ phases:
     commands:
       - echo Configuring Nginx to serve index.html...
 
-artifacts:
-  files:
-    - /var/www/html/index.html
