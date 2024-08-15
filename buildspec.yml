@@ -5,7 +5,7 @@ phases:
     commands:
       - echo Installing httpd...
       - sudo yum update -y
-      - sudo yum install -y httpd
+      - sudo yum install -y httpdxzczxcs
 
   build:
     commands:
